@@ -1,5 +1,5 @@
 import React from "react";
-import { FormGroup, InputGroup, NumericInput, TextArea } from "@blueprintjs/core";
+import { FormGroup, InputGroup, TextArea } from "@blueprintjs/core";
 import { useUID } from "react-uid";
 import { unstable_trace as trace } from "scheduler/tracing";
 import { TransTitle, updateValue, updateValidity, checkNativeValidity, getDisplayName } from "@ui-schema/ui-schema";
@@ -77,10 +77,10 @@ const TextRenderer = withBaseRenderer(({ ...props }) => {
 const NumberRenderer = withBaseRenderer(({ ...props }) => {
     const { onChange } = props
     return (
-        <NumericInput
+        <InputGroup
             {...props}
-            allowNumericCharactersOnly={true}
-            onValueChange={(value) => onChange(value)}
+            type="number"
+            onChange={(e) => onChange(e.target.value)}
         />
     )
 })
